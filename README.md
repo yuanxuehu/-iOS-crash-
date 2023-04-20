@@ -1,21 +1,21 @@
 # iOS-crash
-关于iOS一些常见crash问题的防护方案探讨
+#关于iOS一些常见crash问题的防护方案探讨
 
-一、概述
-二、防护方案
-1、unrecognized selector crash 防护方案
-2、NSTimer类型 crash 防护方案
-3、KVO crash 防护方案
-4、容器类crash 防护方案
-5、野指针类型的crash 防护方案
-三、方案实现
-1、开启防护组件，可选择防护的问题类型
-2、设置全局的未识别方法时的默认处理
-3、判断指针是否为野指针
-4、对NSTimer、KVO的防护
+#一、概述
+#二、防护方案
+##1、unrecognized selector crash 防护方案  
+##2、NSTimer类型 crash 防护方案
+##3、KVO crash 防护方案
+##4、容器类crash 防护方案
+##5、野指针类型的crash 防护方案
+#三、方案实现
+##1、开启防护组件，可选择防护的问题类型
+##2、设置全局的未识别方法时的默认处理
+##3、判断指针是否为野指针
+##4、对NSTimer、KVO的防护
 
 
-一、概述
+#一、概述
 针对iOS客户端日常开发中经常出现的一些crash问题，我们可以探讨其产生的原因，并利用Object-C的runtime对相关系统API的实现进行了替
 换，来实现对这些问题的防护。
 常见的一些crash问题如下：
@@ -25,7 +25,7 @@
 4、容器类（NSArray、NSDictionary等）边界越界、非法元素变更。
 5、野指针。
 
-二、防护方案
+#二、防护方案
 1、unrecognized selector crash 防护方案
 利用Objective—C的消息转发机制，通过重写NSObject的四个方法来处理:
 + (BOOL)resolveClassMethod:(SEL)sel; //动态类方法决议机制,决议类方法
@@ -66,7 +66,7 @@ Exception Codes: SEGV_ACCERR
 h的类对象以及有相对清晰的调用栈。
 2、通过系统标准库中提供的 malloc_zone_t *malloc_zone_from_ptr(const void *ptr) 方法来判断指针指向的内存是否有效。
 
-三、方案实现
+#三、方案实现
 1、开启防护组件，可选择防护的问题类型
 // 开启常见crash保护
 [ZCCrashProtector setupCrashProtectorWithStyle:ZCCrashProtectorStyleAll];
