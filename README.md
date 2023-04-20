@@ -1,13 +1,20 @@
 # iOS-crash
 #关于iOS一些常见crash问题的防护方案探讨
 
-#一、概述
-#二、防护方案
+#一、概述  
+
+#二、防护方案  
+
 ##1、unrecognized selector crash 防护方案  
-##2、NSTimer类型 crash 防护方案
-##3、KVO crash 防护方案
-##4、容器类crash 防护方案
-##5、野指针类型的crash 防护方案
+
+##2、NSTimer类型 crash 防护方案  
+
+##3、KVO crash 防护方案  
+
+##4、容器类crash 防护方案  
+
+##5、野指针类型的crash 防护方案  
+
 #三、方案实现
 ##1、开启防护组件，可选择防护的问题类型
 ##2、设置全局的未识别方法时的默认处理
